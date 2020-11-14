@@ -30,19 +30,19 @@ RUN apt update && \
     rm -rf /var/tmp/* && \
     rm -rf /tmp/*
 
-RUN apt update && \
-    mkdir -p /data && \
-    apt install -qy \
-      python-pip \
-      python3-pip \
-       && \
-    pip3 install Faker && \
-    pip3 install https://github.com/haakco/faker_fdw/archive/master.zip && \
-    apt -y autoremove && \
-    apt -y clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /var/tmp/* && \
-    rm -rf /tmp/*
+#RUN apt update && \
+#    mkdir -p /data && \
+#    apt install -qy \
+#      python-pip \
+#      python3-pip \
+#       && \
+#    pip3 install Faker && \
+#    pip3 install https://github.com/haakco/faker_fdw/archive/master.zip && \
+#    apt -y autoremove && \
+#    apt -y clean && \
+#    rm -rf /var/lib/apt/lists/* && \
+#    rm -rf /var/tmp/* && \
+#    rm -rf /tmp/*
 
 ADD ./files/docker-entrypoint-initdb.d/* /docker-entrypoint-initdb.d/
 ADD ./files/postgres.conf /etc/postgresql/postgresql.conf
