@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-IMAGE_NAME="haakco/postgres13"
-docker build --rm -t "${IMAGE_NAME}" .
+export POSTGRES_VERSION=${POSTGRES_VERSION:-'13'}
+export IMAGE_NAME=${IMAGE_NAME:-"haakco/postgres${POSTGRES_VERSION}"}
+./build.sh
 docker push "${IMAGE_NAME}"

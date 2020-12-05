@@ -1,20 +1,11 @@
-CREATE EXTENSION adminpack;
-CREATE EXTENSION dblink;
-CREATE EXTENSION "uuid-ossp";
-CREATE EXTENSION "pg_buffercache";
-CREATE EXTENSION pgcrypto;
-CREATE EXTENSION hstore;
-CREATE EXTENSION multicorn;
+CREATE EXTENSION IF NOT EXISTS adminpack;
+CREATE EXTENSION IF NOT EXISTS dblink;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "pg_buffercache";
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+CREATE EXTENSION IF NOT EXISTS hstore;
+CREATE EXTENSION IF NOT EXISTS multicorn;
+CREATE EXTENSION IF NOT EXISTS "sequential_uuids";
 
 DROP SCHEMA IF EXISTS fake CASCADE ;
 DROP SERVER IF EXISTS faker_srv CASCADE;
-
-# CREATE SERVER faker_srv
-#     FOREIGN DATA WRAPPER multicorn
-#     OPTIONS (wrapper 'faker_fdw.FakerForeignDataWrapper');
-#
-# CREATE SCHEMA faker;
-# IMPORT FOREIGN SCHEMA fake
-#     FROM SERVER faker_srv
-#     INTO faker
-#     OPTIONS ( locale 'en_UK', max_results '10000000');
